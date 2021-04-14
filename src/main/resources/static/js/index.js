@@ -7,7 +7,7 @@ const file =  document.getElementById("file");
 
 
 file.addEventListener('change', e => {
-	if (e.target.files[0].size/1048576 <= 500) {
+	if (e.target.files[0].size/1048576 <= 100) {
 		compute.disabled = false;
 	} else {
 		compute.disabled = true;
