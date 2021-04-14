@@ -1,7 +1,7 @@
 package com.example.utils;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class FileChecksumImpl implements FileChecksum {
 
 	@Override
-	public String sha1Checksum(FileInputStream fis) {
+	public String sha1Checksum(InputStream fis) {
 		MessageDigest sha1Digest = null;
 		try {
 			sha1Digest = MessageDigest.getInstance("SHA-1");
@@ -28,7 +28,7 @@ public class FileChecksumImpl implements FileChecksum {
 	}
 
 	@Override
-	public String sha256Checksum(FileInputStream fis) {
+	public String sha256Checksum(InputStream fis) {
 		MessageDigest sha256Digest = null;
 		try {
 			sha256Digest = MessageDigest.getInstance("SHA-256");
@@ -45,7 +45,7 @@ public class FileChecksumImpl implements FileChecksum {
 	}
 
 	@Override
-	public String sha512Checksum(FileInputStream fis) {
+	public String sha512Checksum(InputStream fis) {
 		MessageDigest sha512Digest = null;
 		try {
 			sha512Digest = MessageDigest.getInstance("SHA-512");
@@ -61,7 +61,7 @@ public class FileChecksumImpl implements FileChecksum {
 		return checksum;
 	}
 
-	private static String getFileChecksum(MessageDigest digest, FileInputStream fis) throws IOException {
+	private static String getFileChecksum(MessageDigest digest, InputStream fis) throws IOException {
 
 		byte[] byteArray = new byte[1024];
 		int bytesCount = 0;

@@ -1,7 +1,7 @@
 package com.example.controllers;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class MainController {
 			algo = "sha-1";
 		}
 		try {
-			FileInputStream fis = (FileInputStream) multipartFile.getInputStream();
+			InputStream fis = multipartFile.getInputStream();
 			String checksum = null;
 			switch (algo) {
 			case "sha-1":
